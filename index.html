@@ -135,7 +135,7 @@ ul.list{list-style:none;margin:0;padding:0 2px 0 0;display:flex;flex-direction:c
     </header>
     <div class="search glass">
       <i class="fas fa-search"></i>
-      <input id="q" type="text" placeholder="Find bookmarks or search Google" autocomplete="off" autofocus>
+      <input id="q" type="text" placeholder="Search Google" autocomplete="off" autofocus>
     </div>
     <div class="groups" id="groups"></div>
   </main>
@@ -219,17 +219,10 @@ $('#groups').innerHTML=GROUPS.map(g=>`<section class="grp glass"><h2>${esc(g.nam
 
 
 const q=$('#q');
-q.addEventListener('input',()=>{
-  const v=q.value.trim().toLowerCase();
-  $$('.tile').forEach(t=>t.classList.toggle('hide',!!v&&!t.dataset.n.includes(v)));
-  $$('.grp').forEach(g=>g.classList.toggle('hide',!$$('.tile:not(.hide)',g).length));
-});
 q.addEventListener('keydown',e=>{
   if(e.key!=='Enter')return;
   const v=q.value.trim();if(!v)return;
-  const first=$('.tile:not(.hide)');
-  if(first)location.href=first.href;
-  else location.href='https://www.google.com/search?q='+encodeURIComponent(v);
+  location.href='https://www.google.com/search?q='+encodeURIComponent(v);
 });
 document.addEventListener('keydown',e=>{
   if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){e.preventDefault();q.focus()}
