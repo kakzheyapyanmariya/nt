@@ -49,12 +49,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 .search input{flex:1;background:none;border:0;outline:0;font-size:15px}
 .search input::placeholder{color:var(--muted)}
 .search i{color:var(--muted)}
-.groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px;align-items:start}
-.grp{padding:16px 18px 18px}
+.groups{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.grp{padding:14px 18px 16px;max-width:100%}
 .grp.hide{display:none}
 .grp h2{margin:0 0 12px;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
-.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:10px}
-.tile{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;padding:12px 6px 10px;border-radius:14px;background:var(--glass2);border:1px solid transparent;transition:.15s;min-height:84px;text-align:center}
+.tiles{display:flex;flex-wrap:wrap;gap:10px}
+.tile{width:100px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;padding:12px 6px 10px;border-radius:14px;background:var(--glass2);border:1px solid transparent;transition:.15s;min-height:84px;text-align:center}
 .tile:hover{border-color:var(--line);background:rgba(255,255,255,.13);transform:translateY(-2px)}
 .tile.hide{display:none}
 .ico{display:grid;place-items:center;height:34px;font-size:26px;color:var(--accent)}
@@ -121,7 +121,6 @@ ul.list{list-style:none;margin:0;padding:0 2px 0 0;display:flex;flex-direction:c
 @media(max-width:700px){
   .app{grid-template-columns:1fr;padding:12px}
   .clock{font-size:40px}
-  .groups{grid-template-columns:1fr}
 }
 </style>
 </head>
